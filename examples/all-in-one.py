@@ -115,12 +115,13 @@ variables = ["temperature",
              "pressure",
              "humidity",
              "light",
-             "oxidised",
-             "reduced",
-             "nh3",
-             "pm1",
-             "pm25",
-             "pm10"]
+             #"oxidised",
+             #"reduced",
+             #"nh3",
+             #"pm1",
+             #"pm25",
+             #"pm10"
+             ]
 
 values = {}
 
@@ -171,59 +172,59 @@ try:
                 data = 1
             display_text(variables[mode], data, unit)
 
-        if mode == 4:
-            # variable = "oxidised"
-            unit = "kO"
-            data = gas.read_all()
-            data = data.oxidising / 1000
-            display_text(variables[mode], data, unit)
+        #if mode == 4:
+        #    # variable = "oxidised"
+        #    unit = "kO"
+        #    data = gas.read_all()
+        #    data = data.oxidising / 1000
+        #    display_text(variables[mode], data, unit)
 
-        if mode == 5:
-            # variable = "reduced"
-            unit = "kO"
-            data = gas.read_all()
-            data = data.reducing / 1000
-            display_text(variables[mode], data, unit)
+        #if mode == 5:
+        #    # variable = "reduced"
+        #    unit = "kO"
+        #    data = gas.read_all()
+        #    data = data.reducing / 1000
+        #    display_text(variables[mode], data, unit)
 
-        if mode == 6:
-            # variable = "nh3"
-            unit = "kO"
-            data = gas.read_all()
-            data = data.nh3 / 1000
-            display_text(variables[mode], data, unit)
+        #if mode == 6:
+        #    # variable = "nh3"
+        #    unit = "kO"
+        #    data = gas.read_all()
+        #    data = data.nh3 / 1000
+        #    display_text(variables[mode], data, unit)
 
-        if mode == 7:
-            # variable = "pm1"
-            unit = "ug/m3"
-            try:
-                data = pms5003.read()
-            except pmsReadTimeoutError:
-                logging.warning("Failed to read PMS5003")
-            else:
-                data = float(data.pm_ug_per_m3(1.0))
-                display_text(variables[mode], data, unit)
+        #if mode == 7:
+        #    # variable = "pm1"
+        #    unit = "ug/m3"
+        #    try:
+        #        data = pms5003.read()
+        #    except pmsReadTimeoutError:
+        #        logging.warning("Failed to read PMS5003")
+        #    else:
+        #        data = float(data.pm_ug_per_m3(1.0))
+        #        display_text(variables[mode], data, unit)
 
-        if mode == 8:
-            # variable = "pm25"
-            unit = "ug/m3"
-            try:
-                data = pms5003.read()
-            except pmsReadTimeoutError:
-                logging.warning("Failed to read PMS5003")
-            else:
-                data = float(data.pm_ug_per_m3(2.5))
-                display_text(variables[mode], data, unit)
+        #if mode == 8:
+        #    # variable = "pm25"
+        #    unit = "ug/m3"
+        #    try:
+        #        data = pms5003.read()
+        #    except pmsReadTimeoutError:
+        #        logging.warning("Failed to read PMS5003")
+        #    else:
+        #        data = float(data.pm_ug_per_m3(2.5))
+        #        display_text(variables[mode], data, unit)
 
-        if mode == 9:
-            # variable = "pm10"
-            unit = "ug/m3"
-            try:
-                data = pms5003.read()
-            except pmsReadTimeoutError:
-                logging.warning("Failed to read PMS5003")
-            else:
-                data = float(data.pm_ug_per_m3(10))
-                display_text(variables[mode], data, unit)
+        #if mode == 9:
+        #    # variable = "pm10"
+        #    unit = "ug/m3"
+        #    try:
+        #        data = pms5003.read()
+        #    except pmsReadTimeoutError:
+        #        logging.warning("Failed to read PMS5003")
+        #    else:
+        #        data = float(data.pm_ug_per_m3(10))
+        #        display_text(variables[mode], data, unit)
 
 # Exit cleanly
 except KeyboardInterrupt:
